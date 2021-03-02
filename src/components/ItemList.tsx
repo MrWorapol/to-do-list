@@ -1,4 +1,4 @@
-import { Checkbox, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText } from "@material-ui/core";
+import { Checkbox,  List, ListItem, ListItemSecondaryAction, ListItemText } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React, { useState } from "react";
 
@@ -43,11 +43,7 @@ export interface TodoListAttributes {
 export default function ItemList(attr: TodoListAttributes) {
   const { todoList } = attr;
   const classes = useStyles();
-  const [checked, setChecked] = useState(true);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
+ 
 
   if (todoList.length < 1) {
     return <div></div>;
@@ -59,16 +55,10 @@ export default function ItemList(attr: TodoListAttributes) {
           return(
           <ListItem key={index} className={classes.listItem} >
             <ListItemText  className={classes.listItemText} primary={row.subject}/>
-            <ListItemSecondaryAction>
-              <Checkbox
-                edge="end"
-                onChange={handleChange}
-              />
-              </ListItemSecondaryAction>
+            
           </ListItem>
           ) 
         })
-        
       }
       
       </List>

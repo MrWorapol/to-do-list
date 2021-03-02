@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {useForm} from 'react-hook-form';
 import { Button, TextField } from '@material-ui/core'
 import '../App.css'
 import ItemList, { TodoListInterface } from '../components/ItemList';
@@ -9,17 +8,17 @@ import ItemList, { TodoListInterface } from '../components/ItemList';
 export default function TodoListPage() {
     const [todo,setTodo] = useState('');
     const [todoList,setTodoList] = useState<TodoListInterface[]>([]);
-
+    const [number,setNumber] = useState(0);
     const handleChange = (e : any) => {  
-        e.preventDefault();
         setTodo(e.target.value); 
     }
 
     const handleSubmit = () => {
         setTodoList([{subject : todo,status : false},...todoList]);
-        console.log(todoList);
-    }
 
+        
+    }
+    
     return (
         <div className="card">
             
